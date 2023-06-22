@@ -7,10 +7,7 @@ namespace _Scripts
     {
         public static GameAssets Instance;
 
-        private void Awake()
-        {
-            Instance = this;
-        }
+        private void Awake() => Instance = this;
 
         public Sprite snakeHeadSprite;
         public Sprite snakeBodySprite;
