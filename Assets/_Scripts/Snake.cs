@@ -38,7 +38,7 @@ namespace _Scripts
         private void Awake()
         {
             _gridPosition = new Vector2Int(10, 10);
-            _gridMoveTimerMax = .2f;
+            _gridMoveTimerMax = 0.4f;
             _gridMoveTimer = _gridMoveTimerMax;
             _gridMoveDirection = Direction.Right;
 
@@ -134,6 +134,12 @@ namespace _Scripts
             var snakeAteFood = _levelGrid.TrySnakeEatFood(_gridPosition);
             if (snakeAteFood)
             {
+                _gridMoveTimerMax -= 0.02f;
+                if (_gridMoveTimerMax < 0.1f)
+                {
+                    _gridMoveTimerMax = 0.1f;
+                }
+                
                 _snakeBodySize++;
                 CreateSnakeBodyPart();
                 SoundManager.PlaySound(SoundManager.Sound.SnakeEat);
