@@ -174,7 +174,7 @@ namespace _Scripts
         }
 
 
-        private float GetAngleFromVector(Vector2Int direction)
+        private static float GetAngleFromVector(Vector2Int direction)
         {
             var n = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             if (n < 0) n += 360;
